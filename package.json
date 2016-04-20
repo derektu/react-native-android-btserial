@@ -1,0 +1,26 @@
+{
+  "name": "react-native-android-btserial",
+  "description": "A react native android module for serial IO over bluetooth device.",
+  "version": "1.0.0",
+  "main": "index.android.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/derektu/react-native-android-btserial.git"
+  },
+  "keywords": [
+    "react-component",
+    "react-native",
+    "bluetooth",
+    "android"
+  ],
+  "author": {
+    "name": "Derek Tu",
+    "email": "derektu123@gmail.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/derektu/react-native-android-btserial",
+  "bugs": {
+    "url": "https://github.com/derektu/react-native-android-btserial/issues"
+  },
+  "readme": "ERROR: No README data found!"
+}
