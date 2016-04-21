@@ -1,7 +1,7 @@
 {
   "name": "react-native-android-btserial",
   "description": "A react native android module for serial IO over bluetooth device.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.android.js",
   "repository": {
     "type": "git",
