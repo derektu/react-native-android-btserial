@@ -61,6 +61,17 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 ```
 * Run `react-native run-android` from your project root directory
 
+## Example projects
+
+Please refer to the sample react-native project under Example folder:
+
+```
+ $ cd Example
+ $ npm install
+ $ react-native run-android
+```
+
+
 ## API
 
 ```js

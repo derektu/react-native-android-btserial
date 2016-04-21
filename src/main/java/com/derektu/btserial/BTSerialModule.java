@@ -433,14 +433,4 @@ public class BTSerialModule extends ReactContextBaseJavaModule implements Lifecy
         mBuffer.reset();
         return data;
     }
-
-    //--------------------------------------------------------------//
-    // THE FOLLOWING ARE COPIED FROM TOAST SAMPLE
-    //--------------------------------------------------------------//
-
-    @ReactMethod
-    public void showToast(String message) {
-        Toast.makeText(getReactApplicationContext(), message, Toast.LENGTH_SHORT).show();
-    }
-
 }

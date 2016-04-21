@@ -1,0 +1,9 @@
+rootProject.name = 'TestBTSerial'
+
+include ':app'
+include ':react-native-android-btserial'
+project(':react-native-android-btserial').projectDir = new File(settingsDir, '../..')
+
+// If react-native-android-btserial is installed from npm, then uncomment this line.
+//
+//project(':react-native-android-btserial').projectDir = new File(settingsDir, '../node_modules/react-native-android-btserial')
