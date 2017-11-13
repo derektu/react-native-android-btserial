@@ -40,12 +40,12 @@ dependencies {
 }
 ```
 
-* register module (in MainActivity.java)
+* register module (in MainApplication.java)
 
 ```java
 import com.derektu.btserial.BTSerialPackage;    // <--- import
 
-public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
+public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
@@ -105,7 +105,7 @@ Enable Bluetooth. If Bluetooth is not enabled, will request user to enable BT
 
     BTSerial.enableBT(function(err, enabled) {
       // enabled is true/false
-    ));
+    });
 
 ## showBTSettings
 
