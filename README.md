@@ -21,6 +21,7 @@ $ npm install -S yhozen/react-native-android-btserial
 ```
  
 ## Link libraries
+Add the following lines of codes in each file
 * `android/settings.gradle`
 
 ```gradle
@@ -29,7 +30,7 @@ include ':react-native-android-btserial'
 project(':react-native-android-btserial').projectDir = new File(settingsDir, '../node_modules/react-native-android-btserial')
 ```
 
-* `android/app/build.gradle`
+* `android/app/build.gradle` ( NOT android/build.gradle ) 
 
 ```gradle
 ...
@@ -43,7 +44,7 @@ dependencies {
 * MainApplication.java (android/app/src/main/java/com/[appname])
 
 ```java
-import com.derektu.btserial.BTSerialPackage;    // <--- import
+import com.derektu.btserial.BTSerialPackage;    // <--- add this
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -51,7 +52,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
-            new BTSerialPackage()       // <----- add package
+            new BTSerialPackage()       // <----- and this
         );
     }
 
