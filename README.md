@@ -1,27 +1,26 @@
 # Bluetooth module for react-native android
+[![npm](https://img.shields.io/npm/dm/localeval.svg)](derektu/react-native-android-btserial)
 
-A react native android module for serial IO over bluetooth device.
+A react native android module for serial IO over bluetooth device. Remember to test in a real device because android emulator doesn't support bluetooth
 
 The source code is largely from [BluetoothSerial cordova plugin](https://github.com/don/BluetoothSerial).
 However only part of the source code is ported due to time constraint.
 
-## Setup
+Example code [here](https://github.com/Yhozen/RN-BTExample)
 
-There are sereral steps in the setup process
+Use react native >= 0.47.0 
 
-1. install module
-2. update `android/settings.gradle`
-3. update `android/app/build.gradle`
-4. Register module in MainActivity.java
-5. Rebuild and restart package manager
+## Install via [npm](https://npmjs.com)
 
-
-* install module
-
-```bash
- npm i --save react-native-android-btserial
+```sh
+$ npm install -S react-native-android-btserial
 ```
-
+IMPORTANT at this moment you will need to run the next command instead
+```sh
+$ npm install -S yhozen/react-native-android-btserial
+```
+ 
+## Link libraries
 * `android/settings.gradle`
 
 ```gradle
@@ -40,7 +39,8 @@ dependencies {
 }
 ```
 
-* register module (in MainApplication.java)
+
+* MainApplication.java (android/app/src/main/java/com/[appname])
 
 ```java
 import com.derektu.btserial.BTSerialPackage;    // <--- import
@@ -59,24 +59,20 @@ public class MainApplication extends Application implements ReactApplication {
 
 }
 ```
-* Run `react-native run-android` from your project root directory
 
-## Example projects
+## Usage
 
-Please refer to the sample react-native project under Example folder:
-
+```js
+import BTSerial  from 'react-native-android-btserial'
 ```
- $ cd Example
- $ npm install
- $ react-native run-android
+or
+
+```js
+const BTSerial  = require('react-native-android-btserial')
 ```
 
 
 ## API
-
-```js
-var BTSerial = require('react-native-android-btserial');
-```
 
 - [BTSerial.isEnabled](#isEnabled)
 - [BTSerial.enableBT](#enableBT)
@@ -95,29 +91,30 @@ var BTSerial = require('react-native-android-btserial');
 
 Check if Bluetooth is enabled.
 
-    BTSerial.isEnabled(function(err, enabled) {
+    BTSerial.isEnabled(function (err, enabled) {
         // enabled is true/false
-    });
+    })
 
 ## enableBT
 
 Enable Bluetooth. If Bluetooth is not enabled, will request user to enable BT
 
-    BTSerial.enableBT(function(err, enabled) {
+    BTSerial.enableBT(function (err, enabled) {
       // enabled is true/false
-    });
+    })
 
 ## showBTSettings
 
 Display System Bluebooth settings screen.
 
-    BTSerial.showBTSettings();
+    BTSerial.showBTSettings()
 
 ## listDevices
 
 List paired devices. devices is an array of {id:.., address:.., name:..}
 
     BTSerial.listDevices(function(err, devices) {
+        // callback
     })
 
 ## connect
@@ -125,8 +122,9 @@ List paired devices. devices is an array of {id:.., address:.., name:..}
 Connect to a paired device. If device is connected, status is true, and deviceName is the
 name of remote device. Otherwise status is false.
 
-    BTSerial.connect(address, function(err, status, deviceName){
-    });
+    BTSerial.connect(address, function (err, status, deviceName) {
+        // callback
+    })
 
 ## disconnect
 
@@ -138,22 +136,25 @@ Disconnect from connected device.
 
 Write data to connected devices. If encoding is null or empty, default to utf-8.
 
-    BTSerial.write(string, encoding, function(err) {
-    });
+    BTSerial.write(string, encoding, function (err) {
+        // callback
+    })
 
 ## available
 
 Check if there is any data received from connected device.
 
-    BTSerial.available(function(err, count) {
-    });
+    BTSerial.available(function (err, count) {
+        // callback
+    })
 
 ## read
 
 Read data from connected device. If encoding is null or empty, default to utf-8.
 If there is no data, empty string('') will be returned.
 
-    BTSerial.read(encoding, function(err, string) {
+    BTSerial.read(encoding, function (err, string) {
+        // callback
     })
 
 # setConnectionStatusCallback
@@ -161,7 +162,8 @@ If there is no data, empty string('') will be returned.
 Register a callback that will be invoked when remote connection is aborted. When callback 'e' is
 {devicename: 'this device'}
 
-    BTSerial.setConnectionStatusCallback(function(e) {
+    BTSerial.setConnectionStatusCallback(function (e) {
+        // callback
     })
 
 # setDataAvailableCallback
@@ -169,5 +171,6 @@ Register a callback that will be invoked when remote connection is aborted. When
 Register a callback that will be invoked when receive data from connected device. When callback 'e' is
 {available: count}
 
-    BTSerial.setDataAvailableCallback(function(e) {
+    BTSerial.setDataAvailableCallback(function (e) {
+        // callback
     })
